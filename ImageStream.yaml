@@ -5,8 +5,8 @@ items:
   metadata:
     generation: 1
     labels:
-      app: bank-httpd
-    name: bank-httpd
+      app: bridb-httpd
+    name: bridb-httpd
   spec:
     lookupPolicy:
       local: false
@@ -14,7 +14,7 @@ items:
     - annotations: null
       from:
         kind: DockerImage
-        name: 172.30.1.1:5000/openshift/httpd:latest
+        name: 172.30.1.1:5000/openshift/bridb-httpd:latest
       generation: null
       importPolicy: {}
       name: latest
