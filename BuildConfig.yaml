@@ -1,0 +1,32 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+    labels:
+      app: "bridb-httpd"
+    name: "bridb-httpd"
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: "bridb-httpd:latest"
+    resources: {}
+    source:
+      git:
+        ref: master
+        uri: https://github.com/BRIDB/bridb-httpd.git
+      contextDir:
+      type: Git
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: ImageStreamTag
+          name: httpd:latest
+          namespace: library
+        forcePull: true
+      type: Docker
+kind: List
+metadata: {}
